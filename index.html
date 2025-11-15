@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNEF-2025</title>
+    <script src="logica_appscript.js"></script>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+
+<body>
+    <!--Coneccion a la base de datos de Google Sheets con metodo POST se cambia el binculo de la base -->
+    <form id="cuestionario" method="POST"
+        action="https://script.google.com/macros/s/AKfycbwMgJioJOLyjNfGybJX10jLWWba7-76FcUTTs5xGz9YWmJe3oTbVF3pv3e2wHuAIOzruw/exec"
+        onsubmit="return confirmarEnvio()">
+        <hr>
+        <h2 id="Titulo1">CONALEP</h2>
+
+        <main>
+            <!-- SECCIÓN 1 -->
+            <section id="seccion1">
+
+                <h2>Bienvenid@</h2>
+                <h1>Circuito de Educación Previsional</h1>
+
+                <!--Contenedor para los campos dentro del formulario-->
+                <fieldset>
+                    <h3>Ingresa tus datos para entrar al formulario.</h3><br>
+
+                    <div>
+                        <label for="nombre">Nombre completo o escuela:</label><br>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre completo">
+                    </div><br>
+
+                    <div>
+                        <label for="correo">Correo electrónico:</label><br>
+                        <input type="email" id="correo" name="correo" placeholder="Escribe tu correo">
+                    </div><br>
+
+                    <div>
+                        <label for="genero">Género:</label><br>
+                        <select id="genero" name="genero" required>
+                            <option value="" disabled selected>Elegir ...</option>
+                            <option value="Hombre">Hombre</option>
+                            <option value="Mujer">Mujer</option>
+                            <option value="Binario">Binario</option>
+                            <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+                        </select>
+                    </div><br>
+                    <div>
+                        <label for="f_nacimiento" id="f_nacimiento1">Año de nacimiento:</label><br>
+                        <input type="number" id="f_nacimiento" name="f_nacimiento" class="campo-form fecha"
+                            placeholder="Ej. 1995" min="1900" max="2025"><br>
+                    </div><br>
+
+                    <button type="button" id="btnEntrar">Entrar</button>
+                    <img src="img/CONSAR.png" alt="creativo" id="consar1">
+                </fieldset>
+            </section>
+
+            <!-- SECCIÓN 2 -->
+            <section id="seccion2">
+                <h2>Cuestionario de clasificación</h2>
+                <p id="txtinst">Instrucciones:</p>
+                <p>Lee cada afirmación y marca el rango que te identifique.</p>
+
+                <!-- Pregunta 1 -->
+                <fieldset id="contenedorPreguntas">
+
+                    <!--1. Ahorro y planificación-->
+                    <!--1. Organizo mis gastos para comprar lo que quiero en el futuro.-->
+                    <p>1. Me importa ahorrar y planear para las cosas importantes que quiero en mi futuro.</p>
+                    <div class="rating">
+
+                        <input type="radio" id="p1-5" name="pregunta1" value="5" required>
+                        <label for="p1-5" title="Siempre">★</label>
+
+                        <input type="radio" id="p1-4" name="pregunta1" value="4" required>
+                        <label for="p1-4" title="Casi siempre">★</label>
+
+                        <input type="radio" id="p1-3" name="pregunta1" value="3">
+                        <label for="p1-3" title="A veces">★</label>
+
+                        <input type="radio" id="p1-2" name="pregunta1" value="2">
+                        <label for="p1-2" title="Casi nunca">★</label>
+
+                        <input type="radio" id="p1-1" name="pregunta1" value="1">
+                        <label for="p1-1" title="Nunca">★</label>
+
+                    </div>
+                    <!-- POR ESTO: -->
+                    <div class="leyenda-estrellas">
+                        <span class="leyenda-izquierda">Nunca</span>
+                        <span class="leyenda-derecha">Siempre</span>
+                    </div>
+
+                    <!-- Pregunta 2 -->
+                    <!--2. Control de gastos-->
+                    <!--2. Manejo imprevistos sin afectar mis planes financieros.-->
+                    <p>2. Organizo mi dinero para comprar las cosas que quiero más adelante.</p>
+                    <div class="rating">
+
+                        <input type="radio" id="p2-5" name="pregunta2" value="5" required>
+                        <label for="p2-5" title="Siempre">★</label>
+
+                        <input type="radio" id="p2-4" name="pregunta2" value="4" required>
+                        <label for="p2-4" title="Casi siempre">★</label>
+
+                        <input type="radio" id="p2-3" name="pregunta2" value="3">
+                        <label for="p2-3" title="A veces">★</label>
+
+                        <input type="radio" id="p2-2" name="pregunta2" value="2">
+                        <label for="p2-2" title="Casi nunca">★</label>
+
+                        <input type="radio" id="p2-1" name="pregunta2" value="1">
+                        <label for="p2-1" title="Nunca">★</label>
+                    </div>
+                    <!-- POR ESTO: -->
+                    <div class="leyenda-estrellas">
+                        <span class="leyenda-izquierda">Nunca</span>
+                        <span class="leyenda-derecha">Siempre</span>
+                    </div>
+
+                    <!-- Pregunta 3 -->
+                    <!--Visualización de futuro-->
+                    <!--3. Ahorro y planeo para cosas importantes de mi futuro.-->
+                    <p>3. Antes de comprar algo, comparo precios en diferentes lugares.</p>
+                    <div class="rating">
+
+                        <input type="radio" id="p3-5" name="pregunta3" value="5" required>
+                        <label for="p3-5" title="Siempre">★</label>
+
+                        <input type="radio" id="p3-4" name="pregunta3" value="4" required>
+                        <label for="p3-4" title="Casi siempre">★</label>
+
+                        <input type="radio" id="p3-3" name="pregunta3" value="3">
+                        <label for="p3-3" title="A veces">★</label>
+
+                        <input type="radio" id="p3-2" name="pregunta3" value="2">
+                        <label for="p3-2" title="Casi nunca">★</label>
+
+                        <input type="radio" id="p3-1" name="pregunta3" value="1">
+                        <label for="p3-1" title="Nunca">★</label>
+                    </div>
+                    <!-- POR ESTO: -->
+                    <div class="leyenda-estrellas">
+                        <span class="leyenda-izquierda">Nunca</span>
+                        <span class="leyenda-derecha">Siempre</span>
+                    </div>
+                    <br><br>
+
+                    <!-- Input oculto para total-->
+                    <input type="hidden" name="total_puntaje" id="total_puntaje">
+
+
+                    <button type="submit">Enviar</button>
+                    <img src="img/CONSAR.png" alt="creativo" id="consar2">
+                </fieldset>
+                <br>
+
+            </section>
+
+            <!--SECCIÓN 3-->
+            <section id="seccion3">
+                <h2>RESULTADO</h2>
+                <div id="resultadoUsuario"></div><br>
+                <img id="resultado-imagen" src="" alt="Nivel prevision" style="display:none;">
+                <div id="comentario"></div>
+            </section>
+        </main>
+    </form>
+</body>
+
+</html>
